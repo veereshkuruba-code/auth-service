@@ -1,4 +1,4 @@
-name: Auth Service CI -I OM
+name: Auth Service CI/CD
 
 on:
   push:
@@ -6,27 +6,44 @@ on:
       - main
 
 jobs:
+
   build:
 
     runs-on: ubuntu-latest
 
     steps:
 
-      - name: Checkout Source Code -1
+      - name: Checkout Source Code
         uses: actions/checkout@v4
 
-      - name: Setup Java 21 -2
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
           cache: maven
 
-      - name: Build Project -3
+      - name: Build Project
         run: mvn clean package
 
-      - name: Upload Build Artifact
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: auth-service-jar
           path: target/*.jar
+
+  deploy:
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: auth-service-jar
+
+      - name: Display Artifact
+        run: ls -la
