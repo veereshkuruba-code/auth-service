@@ -1,0 +1,41 @@
+Build
+    ↓
+Deploy
+    ↓
+systemd
+    ↓
+External Config
+    ↓
+Environment Variables
+    ↓
+Logging
+    ↓
+Nginx
+    ↓
+CI/CD
+
+
+
+3. Basic Troubleshooting (30 minutes)
+
+The 5–6 commands every backend developer should know:
+
+systemctl status
+journalctl
+ps
+ss -tulnp
+curl
+tail
+
+Not 50 commands.
+
+
+
+
+
+
+cmds
+cd /mnt/e/company-platform/auth-service
+
+sudo cp target/auth-service-0.0.1-SNAPSHOT.jar \
+/opt/company-platform/auth-service/auth-service.jar
