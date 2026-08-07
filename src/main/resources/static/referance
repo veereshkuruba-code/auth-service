@@ -39,3 +39,13 @@ cd /mnt/e/company-platform/auth-service
 
 sudo cp target/auth-service-0.0.1-SNAPSHOT.jar \
 /opt/company-platform/auth-service/auth-service.jar
+
+
+
+
+scripts
+│
+├── deploy.sh
+├── rollback.sh
+├── backup.sh
+└── cleanup.sh
